@@ -1,17 +1,26 @@
 import React from 'react'
 import Counter from './Counter'
+import PropTypes from 'prop-types'
 
-const Player = (props)=> {
-    return(
-        <div className="player">
-            
-            <div className="player-name">
-                <button onClick={() => props.removePlayer(props.id)} className="remove-player">✖</button>
-                {props.name}
+class Player extends React.Component{ 
+''
+    static propTypes ={
+        changeScore: PropTypes.func
+    }
+
+   
+    render(){
+        return(
+            <div className="player">
+                
+                <div className="player-name">
+                    <button onClick={() => this.props.removePlayer(this.props.id)} className="remove-player">✖</button>
+                    {this.props.name}
+                </div>
+                <Counter index={this.props.index} score= {this.props.score} changeScore = {this.props.changeScore}/>
             </div>
-            <Counter index={props.index} score= {props.score} changeScore = {props.changeScore}/>
-        </div>
-    )
+        )
+    }
   }
 
 export default Player
