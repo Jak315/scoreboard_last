@@ -11,27 +11,32 @@ class App extends React.Component {
             {
                 name: 'Enkhtuvshin',
                 score: 0,
-                id: 1
+                id: 1,
+                winner: ""
             },
             {
                 name: 'Dulam',
                 score: 0,
-                id: 2
+                id: 2,
+                winner: ""
             },
             {
                 name: 'Jambal',
                 score: 0,
-                id: 3
+                id: 3,
+                winner: ""
             },
             {
                 name: 'Jambal1',
                 score: 0,
-                id: 4
+                id: 4,
+                winner: ""
             },
             {
                 name: 'Jambal2',
                 score: 0,
-                id: 5
+                id: 5,
+                winner: ""
             }
         ]
     }
@@ -54,6 +59,8 @@ class App extends React.Component {
         })
     }
 
+
+
     removePlayer = (paraID) => {
         this.setState(prevState => {
             return {
@@ -73,13 +80,7 @@ class App extends React.Component {
                 }
             ]
         })
-    }
-    topScore = (score) => {
-        this.setState({
-            highscore: 10
-        })
-    }
-
+    }sss
 
     render() {
         return (
@@ -93,6 +94,7 @@ class App extends React.Component {
                 {this.state.players.map((player, index) =>
                     <Player
                         name={player.name}
+                        winner={player.score}
                         score={player.score}
                         key={player.id}
                         id={player.id}
